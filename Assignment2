@@ -8,37 +8,58 @@ buses?
   Memory access takes more machine cycles because there are wait states accosiated with the difference in the 
   speeds of the cpu, bus, and memory circuits.
 4. What are the three basic steps in the instruction execution cycle?
-The three basic steps in the instruction execution cycle are Fetch, Decode, and Execute.
+  The three basic steps in the instruction execution cycle are Fetch, Decode, and Execute.
 5. Which two additional steps are required in the instruction execution cycle when a memory
 operand is used?
+  Two additional steps required when an operand is used are fetching the opperands from registers and memory
+  as well as storing the result.
 
 - [ ] 2.4.3 Section Review, Question 5
 5. What is the purpose of the 8259A PIC controller?
-
+  The purpose of the 8259A Programmable Interrupt Controller is to handle external interrupts from
+  devices such as keyboards, system clocks, and disk drives, allowing for these devices to process
+  immediately.
+  
 - [ ] 2.5.2 Section Review, Questions 1, 3, 4, and 5
 1. Of the four levels of input/output in a computer system, which is the most universal and
 portable?
+  High-level language level is the most portable because they work on many different computer systems
+  and are not dependant on only one operating system.
 3. Why are device drivers necessary, given that the BIOS already has code that communicates
 with the computer’s hardware?
+  The device driver executes code in the device firmware that reads data unique to the device.
 4. In the example regarding displaying a string of characters, which level exists between the
 operating system and the video controller card?
+  The level that exists between the OS and the video controller card is the BIOS.
 5. Is it likely that the BIOS for a computer running MS-Windows would be different from that
 used by a computer running Linux?
-
-- [ ] 2.8 Review Question 7, 8, 9, 10, 12, 19, 20, 25, and 26
+  It is not likely that the BIOS would be different between MS-Windows and Linux, assuming that the
+  system is using a standard BIOS.
+  - [ ] 2.8 Review Question 7, 8, 9, 10, 12, 19, 20, 25, and 26
 7. Which part of the CPU performs floating-point arithmetic?
+  The floating-point unit is used to execute high-speed floating-point instructions.
 8. On a 32-bit processor, how many bits are contained in each floating-point data register?
+  80 bits.
 9. (True/False): The x86-64 instruction set is backward-compatible with the x86 instruction set.
+  True
 10. (True/False): In current 64-bit chip implementations, all 64 bits are used for addressing.
+  False
 12. (True/False): Static RAM is usually less expensive than dynamic RAM.
+  False
 19. (True/False): A bus is a plastic cable that is attached to the motherboard at both ends, but
 does not sit directly on the motherboard.
+  False
 20. (True/False): CMOS RAM is the same as static RAM, meaning that it holds its value with-
 out any extra power or refresh cycles.
+  False
 25. At which level(s) can an assembly language program manipulate input/output?
+  Aseembly language program can manipulate output at all levels, although your OS may only permit
+  manipulation to certain levels, for example, the last MS OS to allow programs to access hardware
+  diretly was MS-DOS.
 26. Why do game programs often send their sound output directly to the sound card’s hardware
 ports?
-
+  By sending the sound output directly to the sound card's port it allows the device to execute as fast
+  as possible.
 - [ ] Upload your assignment to GitHub
 - [ ] Email james.wilson@rccd.edu with the url to the source code on GitHub	
 
