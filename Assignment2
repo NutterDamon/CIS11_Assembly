@@ -1,0 +1,45 @@
+- [ ] 2.1.5 Section Review, Questions 1,2,3,4 and 5
+1. The central processor unit (CPU) contains registers and what other basic elements?
+  The CPU contains registers, a clock, a control unit, and an ALU.
+2. The central processor unit is connected to the rest of the computer system using what three
+buses?
+  The CPU is connected to the rest of the computer system by using the data bus, control bus, and address bus.
+3. Why does memory access take more machine cycles than register access?
+  Memory access takes more machine cycles because there are wait states accosiated with the difference in the 
+  speeds of the cpu, bus, and memory circuits.
+4. What are the three basic steps in the instruction execution cycle?
+The three basic steps in the instruction execution cycle are Fetch, Decode, and Execute.
+5. Which two additional steps are required in the instruction execution cycle when a memory
+operand is used?
+
+- [ ] 2.4.3 Section Review, Question 5
+5. What is the purpose of the 8259A PIC controller?
+
+- [ ] 2.5.2 Section Review, Questions 1, 3, 4, and 5
+1. Of the four levels of input/output in a computer system, which is the most universal and
+portable?
+3. Why are device drivers necessary, given that the BIOS already has code that communicates
+with the computer’s hardware?
+4. In the example regarding displaying a string of characters, which level exists between the
+operating system and the video controller card?
+5. Is it likely that the BIOS for a computer running MS-Windows would be different from that
+used by a computer running Linux?
+
+- [ ] 2.8 Review Question 7, 8, 9, 10, 12, 19, 20, 25, and 26
+7. Which part of the CPU performs floating-point arithmetic?
+8. On a 32-bit processor, how many bits are contained in each floating-point data register?
+9. (True/False): The x86-64 instruction set is backward-compatible with the x86 instruction set.
+10. (True/False): In current 64-bit chip implementations, all 64 bits are used for addressing.
+12. (True/False): Static RAM is usually less expensive than dynamic RAM.
+19. (True/False): A bus is a plastic cable that is attached to the motherboard at both ends, but
+does not sit directly on the motherboard.
+20. (True/False): CMOS RAM is the same as static RAM, meaning that it holds its value with-
+out any extra power or refresh cycles.
+25. At which level(s) can an assembly language program manipulate input/output?
+26. Why do game programs often send their sound output directly to the sound card’s hardware
+ports?
+
+- [ ] Upload your assignment to GitHub
+- [ ] Email james.wilson@rccd.edu with the url to the source code on GitHub	
+
+** 19 Possible Points (1 for each question) ***
