@@ -1,0 +1,147 @@
+- [ ] 1.1.3 Section Review, Questions 1,3, 8, 12
+1.How do assemblers and linkers work together?
+A linker is a utility program that combines files created by an assembler into an executable program.
+3. What is meant by a one-to-many relationship when comparing a high-level language to machine language?
+A high-level language has a one-to-many relationship. This means that one command translates to several commands in machine language.
+8. Do you suppose type checking on pointer variables is stronger (stricter) in assembly language, or in C and C++?
+The text explains that assembly language has “less rules” than high-level languages. For this reason I would say that C and C++ would be stricter.
+12. Challenge: Translate the following C++ expression to assembly language, using the example presented earlier in this chapter as a guide: X = (Y * 4) + 3
+mov eax,Y;
+mov ebx,4;
+imul ebx;
+add eax,3;
+mov X,eax;
+
+- [ ] 1.2.1 Section Review, Questions 2, 3, 10
+2.Why do you suppose translated programs often execute more quickly than interpreted ones?
+I suppose that interpreted programs would tend to run slower because the code has to be piece by piece decoded then executed. As for the translated program, the entire program is converted before execution.
+3.(True/False): When an interpreted program written in language L1 runs, each of its instructions is decoded and executed by a program written in language L0.
+True
+10.Statements at the assembly language level of a virtual machine are translated into statements at which other level?
+Assembly language level statements are translated into statements at the Instruction set architecture (ISA) level.
+
+- [ ] 1.3.9 Section Review, Questions 2, 3, 5, 6, 7 
+2. What is the decimal representation of each of the following unsigned binary integers?
+a. 11111000 = 8+16+32+64+128=248
+b. 11001010=2+8+64+128=202
+c. 11110000=16+32+64+128=240
+3.What is the sum of each pair of binary integers?
+a.	00001111
++	00000010
+=  	00010001 
+b. 	    11010101 
++ 	    01101011
+=	  101000000 
+c. 	00001111 
++ 	00001111
+=	      11110
+5. What is the minimum number of binary bits needed to represent each of the following
+unsigned decimal integers?
+a. 65 = 7 bits
+b. 409 = 9 bits
+c. 16385 = 15 bits
+6. What is the hexadecimal representation of each of the following binary numbers?
+a. 0011 0101 1101 1010 = 35DA
+b. 1100 1110 1010 0011 = CEA3
+c. 1111 1110 1101 1011 = FEDB
+7.What is the binary representation of the following hexadecimal numbers?
+a. A4693FBC = 1010 0100 0110 1001 0011 1111 1011 1100 
+b. B697C7A1 = 1011 0110 1001 0111 1100 0111 1010 0001
+c. 2B3D9461 = 0010 1011 0011 1101 1001 0100 0110 0001
+
+- [ ] 1.7.1 Short Answer, Questions 1-22 and 25
+1.In an 8-bit binary number, which is the most significant bit (MSB)?
+The most left bit.
+2.What is the decimal representation of each of the following unsigned binary integers?
+a. 00110101 = 1+4+16+32 = 53
+b. 10010110 = 2+4+16+128 = 150
+c. 11001100 = 8+16+64+128 = 216
+What is the sum of each pair of binary integers?
+a. 	  10101111 
++ 	  11011011
+=	110001010
+b. 	    10010111 
++ 	    11111111
+=	  110010110
+c. 	  01110101 
++ 	  10101100
+= 	100100001
+4.Calculate binary 00001101 minus 00000111 = 00000110
+5. How many bits are used by each of the following data types?
+a. Word = 16 bits
+b. Doubleword = 32 bits
+c. quadword = 64 bits
+d. double quadword = 128 bits
+6.What is the minimum number of binary bits needed to represent each of the following
+unsigned decimal integers?
+a. 4095 = 12 bits
+b. 65534 = 16 bits
+c. 42319 = 16 bits
+7.What is the hexadecimal representation of each of the following binary numbers?
+a. 0011 0101 1101 1010 = 35DA
+b. 1100 1110 1010 0011 = CEA3
+c. 1111 1110 1101 1011 = FEDB
+8.What is the binary representation of the following hexadecimal numbers?
+a. 0126F9D4 = 0000 0001 0010 0110 1111 1001 1101 0100
+b. 6ACDFA95 = 0110 1010 1100 1101 1111 1010 1001 0101
+c. F69BDC2A = 1111 0110 1001 1011 1101 1100 0010 1010
+9.What is the unsigned decimal representation of each of the following hexadecimal integers?
+a. 3A = 48 + 10 = 58
+b. 1BF = 256 + 176 + 15 = 447
+c. 1001 = 4096 + 1 = 4097
+10.What is the unsigned decimal representation of each of the following hexadecimal integers?
+a. 62 = 96 + 2 = 98
+b. 4B3 = 1024 + 176 +3 = 1203
+c. 29F = 512 + 144 + 15 = 671
+11.What is the 16-bit hexadecimal representation of each of the following signed decimal integers?
+a. -24 -> 18 -> E7 + 1 -> E8
+b. -331 -> 14B -> EB4 + 1 -> EB5
+12.What is the 16-bit hexadecimal representation of each of the following signed decimal integers?
+a. -21 -> 15 -> EA + 1 -> EB
+b. -45 -> 2D -> D2 + 1 -> D3
+13.The following 16-bit hexadecimal numbers represent signed integers. Convert each to
+decimal.
+a. 6BF9 = 24576 + 2816 + 240 + 9 = 27641
+b. C123 -> 3EDD = 12288 + 3584 + 208 + 13 = 16093
+14.The following 16-bit hexadecimal numbers represent signed integers. Convert each to
+decimal.
+a. 4CD2 =  (4 * 16^3) + (12 * 16^2) + (13 * 16^1) + (2 *16^0) = 19666
+b. 8230 = (8 * 16^3) + (2 * 16^2) + (3 * 16^1) + (0 *16^0) = 33328
+15.What is the decimal representation of each of the following signed binary numbers?
+a. 10110101 = 2^7 + 2^5 + 2^4 + 2^2 +1 = 181
+b. 00101010 = 2^5 + 2^3 + 2^1 = 42
+c. 11110000 = 2^7 + 2^6 + 2^5 + 2^4 = 240
+16.What is the decimal representation of each of the following signed binary numbers?
+a. 10000000 = 2^7 = 128
+b. 11001100 = 2^7 + 2^6 + 2^3 + 2^2 = 204
+c. 10110111 = 2^7 + 2^5 + 2^4 + 2^2 + 2^1 + 2^0 = 183
+17.What is the 8-bit binary (two’s-complement) representation of each of the following signed decimal integers?
+a. -5 -> 0000 0101 -> 1111 1010 +1 -> 1111 1011
+b. -42 -> 0010 1010 -> 1101 0101 +1 -> 1101 0110
+c. -16 -> 0001 0000 - > 1110 1111 + 1 -> 1111 0000
+18.What is the 8-bit binary (two’s-complement) representation of each of the following signed decimal integers?
+a. -72 -> 0100 1000 -> 1011 0111 + 1 -> 1011 1110
+b. -98 -> 0110 0010 -> 1001 1101 +1 -> 1001 1110
+c. -26 -> 0001 1010 -> 1110 0101 + 1 -> 1110 0110
+19.What is the sum of each pair of hexadecimal integers?
+a. 6B4 + 3FE = AC3
+b. A49 + 6BD = 1217
+20.What is the sum of each pair of hexadecimal integers?
+a. 7C4 + 3BE = C83
+b. B69 + 7AD = 1427
+21. What are the hexadecimal and decimal representations of the ASCII character capital B?
+42 and 66.
+22.What are the hexadecimal and decimal representations of the ASCII character capital G?
+47 and 71
+25.Create a truth table to show all possible inputs and outputs for the boolean function described by ¬(AvB )
+|A|B|AvB|¬(AvB )|
+|F|F|  F   |    T     |
+|F|T|  T  |     F     |
+|T|F|  T  |     F     |
+|T|T|  T  |     F     |
+
+- [ ] 1.7.2 Algorithm Workbench, Choose any 1 question 
+
+- [ ] EXTRA CREDIT: 1.4.2 Section Review, Questions 1-5 (1 point extra credit per question)
+- [ ] Upload your assignment to GitHub
+- [ ] Email james.wilson@rccd.edu with the url to the source code on GitHub	
