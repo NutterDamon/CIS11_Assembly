@@ -1,23 +1,76 @@
 - [ ] 3.1.11 Section Review, Questions 1, 2, 3, 4
 1. Using the value –35, write it as an integer literal in decimal, hexadecimal, octal, and binary
 formats that are consistent with MASM syntax
--35d, -1Fh, -43q, 100011b
+  -35d, -1Fh, -43q, -100011b
 2.(Yes/No): Is A5h a valid hexadecimal literal?
-No, if you start your hexadecimal literal with a character you must start with a 0.
+  No, if you start your hexadecimal literal with a character you must start with a 0.
 3. (Yes/No): Does the multiplication operator (*) have a higher precedence than the division
 operator (/) in integer expressions?
-No, they have equal precedence so it would be interpreted left to right.
+  No, they have equal precedence so it would be interpreted left to right.
 4. Create a single integer expression that uses all the operators from Section 3.1.2. Calculate
 the value of the expression.
-(4-3)*(4/4)+1 MOD 1 = 1
+  (4-3)*(4/4)+1 MOD 1 = 1
 
 - [ ] 3.2.4 Section Review, Questions 4, 5
+4. In the AddTwo program, which register holds the sum?
+  sum is moved to the rax register
+5. In the AddTwo program, which statement halts the program?
+  ExitProcess.
 
 - [ ] 3.3.3 Section Review, Questions 1, 2, 3, 4
+1. What types of files are produced by the assembler?
+  Object file and listing file are created by the assembler.
+2. (True/False): The linker extracts assembled procedures from the link library and inserts
+them in the executable program.
+  True.
+3. (True/False): When a program’s source code is modified, it must be assembled and linked
+again before it can be executed with the changes.
+  True.
+4. Which operating system component reads and executes programs?
+  The OS loader utility.
 - [ ] 3.4.13 Section Review, Questions 1, 2, 3, 4, 5
+1. Create an uninitialized data declaration for a 16-bit signed integer.
+  word1 SWORD ?
+2. Create an uninitialized data declaration for an 8-bit unsigned integer.
+  byte1 BYTE ?
+3. Create an uninitialized data declaration for an 8-bit signed integer.
+  byte2 SBYTE ?
+4. Create an uninitialized data declaration for a 64-bit integer.
+  quad1 QWORD ?
+5. Which data type can hold a 32-bit signed integer?
+  SDWORD
 - [ ] 3.5.5 Section Review Question 3
+3. Write a statement that causes the assembler to calculate the number of bytes in the following
+array, and assign the value to a symbolic constant named ArraySize:
+myArray WORD 20 DUP(?)
+  ArraySize = ($ - myArray)
 - [ ] 3.9.1 Short Answer, Questions 4, 5, 6, 25
+4. Explain why the term assembler language is not quite correct.
+  The assembler is the program that translates the code, not the language itself.
+5. Explain the difference between big endian and little endian. Also, look up the origins of this
+term on the Web.
+  Big endian vs little endian is reffering to the order in which data is stored in memory. Big endian
+  is stored low to high where the most significant byte is stored at the first memory address, 
+  alternatively, little endian is stored with the least significant byte first.
+  The origins of this term refers to Jonathan Swift's Gulliver's Travels (1726) where they were
+  used to describe to opposing factions in the nation of Lilliput. The two factions could not agree
+  on whether to break their boiled eggs at the big end or the little end.
+6. Why might you use a symbolic constant rather than an integer literal in your code?
+  You might use a symbolic constant rather than an interger literal in your coude so that your code
+  is more clear. You wouldnt want to just randomly stick numbers in your code when you could use more
+  descriptive symbolic constants.
+25. Which data directive creates a 32-bit signed integer variable?
+  SDWORD
 - [ ] 3.9.2 Algorithm Workbench, Questions 4, 7, 13
+4. Find out if you can declare a variable of type DWORD and assign it a negative
+value. What does this tell you about the assembler’s type checking?
+  You will not get an error if you assign a negative value to DWORD but it will not store the value
+  correctly because the value of DWORD must be unsigned. The assembler will not explicitly type check
+  to see if the value you input is signed.
+7. Declare an array of 120 uninitialized unsigned doubleword values.
+  array1 DWORD 120 DUP(?)
+13. Declare a string variable containing the word “TEST” repeated 500 times.
+  test BYTE 500 DUP("TEST")
 - [ ] 3.10 Programming Exercises, Pick any 1 exercise
 
 
