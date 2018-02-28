@@ -72,6 +72,28 @@ value. What does this tell you about the assembler’s type checking?
 13. Declare a string variable containing the word “TEST” repeated 500 times.
   test BYTE 500 DUP("TEST")
 - [ ] 3.10 Programming Exercises, Pick any 1 exercise
+1.
+  ;Integer Expression calculation
+  ExitProcess proto
+  .data
+    A = 3d
+    B = 2d
+    C = 4d
+    D = -2d
+    answer DWORD 0
+  .code
+  main proc
+    MOV eax,A
+    MOV ebx,B
+    MOV ecx,C
+    MOV edx,D
+    ADD eax,ebx
+    ADD ecx,edx
+    SUB eax,ebx
+    MOV answer,eax
+    call  ExitProcess
+  main endp
+  end
 
 
 - [ ] Upload your assignment to GitHub
