@@ -27,7 +27,7 @@ string toBinary(unsigned long long int input) {
 		if (input >= divisor) {
 			unsigned long long int quotient = floor(input / divisor);
 			converted += to_string(quotient);
-			int remainder = input % divisor;
+			unsigned long long int remainder = input % divisor;
 			input = remainder;
 			noTrail = true;
 			spaceCounter++;
