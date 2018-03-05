@@ -1,9 +1,9 @@
 Use the following data for Questions 1-5:
 .data
-val1 BYTE 10h
-val2 WORD 8000h
-val3 DWORD 0FFFFh
-val4 WORD 7FFFh
+  val1 BYTE 10h
+  val2 WORD 8000h
+  val3 DWORD 0FFFFh
+  val4 WORD 7FFFh
 
 - [ ] 4.2.8 Section Review, Questions 1, 2, 3, 4, 5, 6	 
 1. Write an instruction that increments val2
@@ -16,16 +16,45 @@ val4 WORD 7FFFh
   mov val2,eax
 4. If val2 is incremented by 1 using the ADD instruction, what will be the values of the Carry
 and Sign flags?
-CF =  SF = 
+CF = 0 SF = 1
 5. If val4 is incremented by 1 using the ADD instruction, what will be the values of the Overflow
 and Sign flags?
-OF =  SF = 
+OF = 1 SF = 1
 6. Where indicated, write down the values of the Carry, Sign, Zero, and Overflow flags after
 each instruction has executed:
 mov ax,7FF0h
-add al,10h ; a. CF = SF = ZF = OF =
-add ah,1 ; b. CF = SF = ZF = OF =
-add ax,2 ; c. CF = SF = ZF = OF = 
+add al,10h ; a. CF = 1 SF = 0 ZF = 1 OF = 0
+add ah,1 ; b. CF = 0 SF = 1 ZF = 0 OF = 1
+add ax,2 ; c. CF = 0 SF = 0 ZF = 0 OF = 0
+
+- [ ] 4.3.8 Section Review, Questions 1,2,3,4,5
+1. (True/False): The OFFSET operator always returns a 16-bit value.
+  False
+2. (True/False): The PTR operator returns the 32-bit address of a variable.
+  False
+3. (True/False): The TYPE operator returns a value of 4 for doubleword operands.
+  True
+4. (True/False): The LENGTHOF operator returns the number of bytes in an operand.
+  False
+5. (True/False): The SIZEOF operator returns the number of bytes in an operand.
+  True
+  
+- [ ] 4.4.5 Section Review, Questions 4,5
+4. (True/False): The following is an indexed operand: array[esi]
+  True
+
+5. Fill in the requested register values on the right side of the following instruction sequence:
+mov esi,OFFSET myBytes
+mov al,[esi] ; a. AL = 10h
+mov al,[esi+3] ; b. AL = 40h
+mov esi,OFFSET myWords + 2
+mov ax,[esi] ; c. AX = 3Bh
+mov edi,8
+mov edx,[myDoubles + edi] ; d. EDX = 3d
+mov edx,myDoubles[edi] ; e. EDX = ??
+mov ebx,myPointer
+mov eax,[ebx+4] ; f. EAX = 2d
+
 - [ ] TBD
 
 - [ ] Upload your assignment to GitHub
