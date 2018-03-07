@@ -56,7 +56,28 @@ mov ebx,myPointer
 mov eax,[ebx+4] ; f. EAX = 2d
 
 - [ ] TBD
+;4.10.7 reverse a string
 
+ExitProcess proto
+.data
+	PBYTE TYPEDEF PTR BYTE
+	source BYTE "This is the source string",0
+	target BYTE SIZEOF source DUP('#')
+.code
+main proc
+        mov esi, SIZEOF source
+		mov ecx, SIZEOF source
+		mov edx, 0
+
+    L1:
+        mov  rax, QWORD PTR [source +esi -1]          ; get a character from source
+        mov  QWORD PTR [target + edx],rax          ; store it in the target
+        inc  edx              ; move to next character
+        dec  esi
+        loop L1
+	call ExitProcess
+main endp
+end
 - [ ] Upload your assignment to GitHub
 - [ ] Email james.wilson@rccd.edu with the url to the source code on GitHub	
 
