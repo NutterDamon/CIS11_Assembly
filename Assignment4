@@ -55,7 +55,7 @@ mov edx,myDoubles[edi] ; e. EDX = ??
 mov ebx,myPointer
 mov eax,[ebx+4] ; f. EAX = 2d
 
-- [ ] TBD
+- [ ] 4.10 Programming Exercises, Question 7
 ;4.10.7 reverse a string
 
 ExitProcess proto
@@ -70,9 +70,9 @@ main proc
 		mov edx, 0
 
     L1:
-        mov  rax, QWORD PTR [source +esi -1]          ; get a character from source
-        mov  QWORD PTR [target + edx],rax          ; store it in the target
-        inc  edx              ; move to next character
+        mov  rax, QWORD PTR [source +esi -1]        
+        mov  QWORD PTR [target + edx],rax         
+        inc  edx             
         dec  esi
         loop L1
 	call ExitProcess
