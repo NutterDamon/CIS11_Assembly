@@ -1,5 +1,30 @@
 - [ ] 5.9 Programming Exercises, Questions 7, 10    
-
+; 5.9 Question 7 (Not really)
+; Asks how many random numbers to delay and then displays input number of rands
+ExitProcess 	proto
+ReadInt64		proto
+WriteString		proto
+Random64		proto
+Crlf			proto
+WriteInt64		proto
+.data
+	myRand QWORD 0
+	askForInput BYTE "How many random numbers do you want to display?",0
+.code
+main proc
+	mov rdx, OFFSET askForInput
+	call WriteString
+	call ReadInt64
+	mov rcx,rax					;loop counter
+L1:
+	call Crlf
+	call Crlf
+	call Random64
+	call WriteInt64
+	loop L1
+	call  ExitProcess
+main endp
+end
 
 - [ ] Upload your assignment to GitHub
 - [ ] Email james.wilson@rccd.edu with the url to the source code on GitHub	
