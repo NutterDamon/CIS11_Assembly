@@ -1,7 +1,7 @@
 - [ ] 5.9 Programming Exercises, Questions 7, 10    
 ; 5.9 Question 7 (Not really)
 ; Asks how many random numbers to delay and then displays input number of rands
-ExitProcess 	proto
+ExitProcess 		proto
 ReadInt64		proto
 WriteString		proto
 Random64		proto
@@ -26,6 +26,21 @@ L1:
 main endp
 end
 
+;5.9 Question 10
+Fib proc USES rax rbx rcx rdx	;sets the loop counter from value in rax
+	mov rcx,rax
+	mov rax,1
+	mov rbx,0
+	mov rdx,0
+L1:
+	ADD rax,rbx					;fib number stored in rax
+	ADD rax,rdx					;rbx is previous number
+	;call WriteInt64		
+	MOV rdx,rbx					;rdx is 2nd previous number
+	MOV rbx,rax
+	mov rax,0
+	loop L1
+Fib endp
 - [ ] Upload your assignment to GitHub
 - [ ] Email james.wilson@rccd.edu with the url to the source code on GitHub	
 
