@@ -1,6 +1,6 @@
 - [ ] 5.9 Programming Exercises, Questions 7, 10    
 ; 5.9 Question 7 (Not really)
-; Asks how many random numbers to delay and then displays input number of rands
+; Asks how many random numbers to display and then displays.
 ExitProcess 		proto
 ReadInt64		proto
 WriteString		proto
