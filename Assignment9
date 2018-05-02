@@ -1,24 +1,36 @@
 Due 2 Weeks before the final day of classes
 
  Briefly describe the concept of "Stack Frame" (1 through 5 points depending on quality of the answer)
-Hint: https://en.wikipedia.org/wiki/X86_calling_conventions
-
+ A Stack frame is a block of memory grouped on a stack that contains information about a particular subroutine. A stack frame will contain
+ the local variables of the subroutine, the return address, and the parameters.
+ 
  Briefly describe the concept of a "Calling Convention" (1 through 5 points depending on quality of the answer)
+  Calling conventions describe the interface of called code. The order in which parameters are allocated as well as
+  how the parameters are passed. Calling conventions also include which registers are preserved for the call and the task
+  of preparing and restoring the stack.
+  
  Why do the book examples always start functions with "push ebp" and "mov ebp,esp" (2 points)
- What is the x64 equivalent to "push epb" and "mov ebp,esp)" (2 points)
+ The book uses "push ebp" and "mov ebp,esp" because in masm 32 bit programming you have to explicitly save your stack pointer address and set up
+ your new stack frame base using esp and ebp.
+ 
+ What is the x64 equivalent to "push ebp" and "mov ebp,esp)" (2 points)
+ In 64 bit masm programming we do not need to explicitly do these operations in order to call procedures. Although the equivalent would just be
+ to use the 64 bit versions of these same registers, namely, rbp and rsp
+ 
  What are the differences between "Microsoft x64 calling convention" and "System V AMD64 ABI calling convention" (2 points)
-Hint: https://en.wikipedia.org/wiki/X86_calling_conventions
+ The microsoft x64 calling convention creates a 32 byte shadowspace when a stack is created that is located between the last two values.
+ This shadowspace allows for overflow from designated registers. The AMD 64  calling convention forces all registers to be saved to preserve values
+ as well as there being no shadowspace.
 
 void myFunction(int a, int b, int c, int d, int e, int f)  {
   //some code here
 }
  Upon entry to myFunction (above), what does the stack look like when using Microsoft x64 calling convention? (3 points)
-
-Hint: https://docs.microsoft.com/en-us/cpp/build/parameter-passing
+The stack would start with the retrun address, followed by the shadow space and the 5th parameter since the first 4 parameters are stored
+in RCX, RDX, R8, and R9 registers.
 
  Upon entry to myFunction (above), what does the stack look like when using stdcall convention (3 points)
-
-Hint: https://en.wikipedia.org/wiki/X86_calling_conventions
+The stack parameters would be stored in reverse order if using stdcall convention. So they would be stored as f, e, d, c, b, and a.
 
  Upload your assignment to GitHub
 
