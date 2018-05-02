@@ -1,5 +1,133 @@
 - [ ] 6.11.2 Programming Exercises, Questions 5 & 6 (submit these as one source code file)
 
+comment!
+5. Boolean Calculator (1)
+Create a program that functions as a simple boolean calculator for 32-bit integers. It should display
+a menu that asks the user to make a selection from the following list:
+1. x AND y
+2. x OR y
+3. NOT x
+4. x XOR y
+5. Exit program
+When the user makes a choice, call a procedure that displays the name of the operation about to
+be performed. You must implement this procedure using the Table-Driven Selection technique,
+shown in Section 6.5.4. (You will implement the operations in Exercise 6.) (The Irvine32 library
+is required for this solution program.)
+!
+ExitProcess		proto
+WriteString		proto
+ReadInt64		proto
+WriteInt64		proto
+.data
+msgX	BYTE	"Enter X value: ",13,10,0
+msgY	BYTE	"Enter Y value:",13,10,0
+msg1	BYTE	"1. x AND y",13,10,0
+msg2	BYTE	"2. x OR y",13,10,0
+msg3	BYTE	"3. NOT x",13,10,0
+msg4	BYTE	"4. x XOR y",13,10,0
+msg5	BYTE	"5. Exit program",13,10,0
+X		BYTE	0
+Y		BYTE	0
+result	BYTE	2
+
+.code
+main proc
+mov rdx, OFFSET msgX
+call WriteString
+call ReadInt64
+mov X, al
+mov rdx, OFFSET msgY
+call WriteString
+call ReadInt64
+mov Y, al
+
+target:
+mov rdx, OFFSET msg1
+call WriteString
+mov rdx, OFFSET msg2
+call WriteString
+mov rdx, OFFSET msg3
+call WriteString
+mov rdx, OFFSET msg4
+call WriteString
+mov rdx, OFFSET msg5
+call WriteString
+call ReadInt64
+
+L1:
+cmp rax,1
+jne L2
+call xANDy
+
+L2:
+cmp rax,2
+jne L3
+call xORy
+
+L3:
+cmp rax,3
+jne L4
+call NOTx
+
+L4:
+cmp rax,4
+jne L5
+call xXORy
+ 
+L5:
+cmp rax,5
+jne target
+call ExitProcess
+
+main endp
+
+xANDy PROC USES rdx
+	mov rdx, OFFSET msg1
+	call WriteString
+	mov bl, X
+	and bl, Y
+	mov result, bl
+	mov al, result
+	call WriteInt64
+	
+ret
+xANDy endp
+
+xORy PROC USES rdx
+	mov rdx, OFFSET msg2
+	call WriteString
+	mov bl, X
+	or bl, Y
+	mov result, bl
+	mov al, result
+	call WriteInt64
+ret
+xORy endp
+
+NOTx proc USES rdx
+	mov rdx, OFFSET msg3
+	call WriteString
+	mov bl, X
+	not bl
+	mov result, bl
+	mov al, result
+	call WriteInt64
+ret
+NOTx endp
+
+xXORy PROC USES rdx
+	mov rdx, OFFSET msg4
+	call WriteString
+	mov bl, X
+	xor bl, Y
+	mov result, bl
+	mov al, result
+	call WriteInt64
+ret
+xXORy endp
+
+end
+
 
 - [ ] Upload your assignment to GitHub
 - [ ] Email james.wilson@rccd.edu with the url to the source code on GitHub	
