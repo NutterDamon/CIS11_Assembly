@@ -1,0 +1,54 @@
+;Write a program with a loop and indexed addressing that exchanges
+;every pair of values in an array with an even number of elements.
+;Therefor, item i will exchange with item i+1; and item i+2 will
+;exchange with item i+3, and so on.
+ExitProcess proto
+WriteInt64 proto
+ReadInt64 proto
+.data
+		array QWORd 1d,2d,3d,4d,5d,6d,7d,8d,9d,10d
+.code
+main proc
+
+		mov rcx, LENGTHOF array
+        mov rbx, 0				; Using rbx since WriteInt64 messes with rax register.
+    L1:
+		mov rax,rbx
+		mov r11,rax	
+		mov rax, array[r11]
+		call WriteInt64
+		add rbx,8
+        loop L1
+;Setting up for swap
+		mov rcx, LENGTHOF array/2
+        mov rbx, 0
+		mov r12 ,8
+    SWAP:
+		mov rax,rbx
+		mov r11,rax
+		mov rbp,r11;
+		add rbp,8
+		mov r14,array[r11]
+		mov r15,array[rbp]
+		mov array[r11],r15
+		mov array[rbp],r14
+		add rbx, 16
+        loop SWAP
+;Pausing program
+		call ReadInt64
+;Setting up for displaying array
+		mov rcx, LENGTHOF array
+        mov rbx, 0
+		mov r12 ,8
+    L2:
+		mov rax,rbx
+		mov r11,rax
+		mov rax, array[r11]
+		call WriteInt64
+		add rbx,8
+        loop L2
+;Pausing before exit.
+		call ReadInt64
+	call ExitProcess
+main endp
+end
