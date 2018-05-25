@@ -1,0 +1,53 @@
+;Using a loop and indexed addressing, write code that rotates the members of a 32-bit integer array 
+;forward one position.  The value at the end of the array must wrap around to the first position.  
+;For example, the array [10,20,30,40] would be transformed into [40,10,20,30]
+ExitProcess proto
+WriteInt64 proto
+ReadInt64 proto
+.data
+		array QWORd 10d,20d,30d,40d,50d,60d,70d,80d,90d,100d
+.code
+main proc
+
+
+		mov rcx, LENGTHOF array
+        mov rbx, 0				; Using rbx since WriteInt64 messes with rax register.
+    L1:
+		mov rax,rbx
+		mov r11,rax	
+		mov rax, array[r11]
+		call WriteInt64
+		add rbx,8
+        loop L1
+;Setting up for rotation
+		mov rcx, LENGTHOF array-1
+        mov rbx, 0
+		mov r14, array[0]
+		mov rdx, ((LENGTHOF array-1)*8)
+		mov rdx, array[rdx]
+    ROTATE:
+		mov rax,rbx
+		mov rbp,rax
+		add rbp,8
+		XCHG array[rbp],r14
+		add rbx,8
+        loop ROTATE
+		mov array[0],rdx ;wrapping last value.
+;Pausing program
+		call ReadInt64
+;Setting up for displaying array
+		mov rcx, LENGTHOF array
+        mov rbx, 0
+		mov r12 ,8
+    L2:
+		mov rax,rbx
+		mov r11,rax
+		mov rax, array[r11]
+		call WriteInt64
+		add rbx,8
+        loop L2
+;Pausing before exit.
+		call ReadInt64
+	call ExitProcess
+main endp
+end
