@@ -1,0 +1,64 @@
+;Given an array of 8-byte integers, sort the array using the Bubble Sort algorithm. 
+;Your program should print the array before and after the sort takes place. 
+ExitProcess proto
+WriteInt64 proto
+ReadInt64 proto
+.data
+		array QWORd 50d,20d,30d,40d
+.code
+main proc
+		mov rcx, LENGTHOF array
+        mov rbx, 0				; Using rbx since WriteInt64 messes with rax register.
+    L1:
+		mov rax,rbx
+		mov r11,rax	
+		mov rax, array[r11]
+		call WriteInt64
+		add rbx,8
+        loop L1
+;Setting up for rotation
+		mov rcx, 0
+        mov rbx, 0
+		mov r13, 8
+    OUTSWAP:
+		cmp rbx, LENGTHOF array-1
+		je DONE
+		mov rax,rbx
+		mul r13
+		mov r11,rax
+		mov r12,r11
+		add r11,8
+		inc rbx
+	INSWAP:
+		cmp rcx,LENGTHOF array-1	;checking if end of array
+		je OUTSWAP
+		mov rsi,array[r11] 
+		mov rdi,array[r12]
+		cmp rsi,rdi
+		jg OUTSWAP
+		XCHG rsi,rdi
+		mov array[r11],rsi
+		mov array[r12],rdi
+		add r11,8
+		add r12,8
+		inc rcx
+		jmp INSWAP
+	DONE:
+;Pausing program
+		call ReadInt64
+;Setting up for displaying array
+		mov rcx, LENGTHOF array
+        mov rbx, 0
+		mov r12 ,8
+    L2:
+		mov rax,rbx
+		mov r11,rax
+		mov rax, array[r11]
+		call WriteInt64
+		add rbx,8
+        loop L2
+;Pausing before exit.
+		call ReadInt64
+	call ExitProcess
+main endp
+end
